@@ -69,3 +69,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # phase-3-project-frontend-2.0
+
+
+
+//Planning
+
+Component Hierarchy
+
+App
+    NavBar
+    Home
+    AddAFarm

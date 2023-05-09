@@ -19,12 +19,11 @@ function App() {
 
   console.log(allFarms)
 
-
   return (
     <div className="App">
       <NavBar />
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" element={<Home allFarms={allFarms}/>}/>
           <Route path ="/addafarm" element={<AddAFarm />}/>
         </Routes>
     </div>
