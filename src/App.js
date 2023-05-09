@@ -12,9 +12,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/farms")
     .then(r => r.json())
-    .then(farms => {
-      setAllFarms(farms)
-    })
+    .then(farms => setAllFarms(farms))
   },[])
 
   console.log(allFarms)
