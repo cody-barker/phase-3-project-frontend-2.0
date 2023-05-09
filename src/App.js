@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import Home from './Home'
+import AddAFarm from './AddAFarm'
 import NavBar from './NavBar'
 import './App.css';
 
@@ -11,22 +12,21 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/farms")
     .then(r => r.json())
-    .then(farms => setAllFarms(farms))
+    .then(farms => {
+      setAllFarms(farms)
+    })
   },[])
 
   console.log(allFarms)
 
+
   return (
     <div className="App">
       <NavBar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path ="/addafarm">
-            <AddAFarm />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path ="/addafarm" element={<AddAFarm />}/>
+        </Routes>
     </div>
   );
 }
