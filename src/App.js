@@ -62,12 +62,24 @@ function App() {
     .then(farms => setAllFarms(farms))
   },[])
 
+  console.log(allFarms)
+
   return (
     <div className="App">
       <NavBar />
         <Routes>
-          <Route path="/" element={<ViewFarms allFarms={allFarms}/>}/>
-          <Route path ="/addafarm" element={<AddAFarm />}/>
+          <Route 
+            path="/" 
+            element={
+              <ViewFarms
+                allFarms={allFarms}
+                setAllFarms={setAllFarms}
+            />}
+          />
+          <Route 
+            path ="/addafarm"
+            element={<AddAFarm />}
+          />
         </Routes>
     </div>
   );

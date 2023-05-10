@@ -2,23 +2,33 @@ import React from 'react'
 
 function TableRow({bed, farmName, allFarms, setAllFarms}) {
     
-    //A TableRow is created by inputting the values of a single bed
-    //I need to map over an array of every bed to create each table row
-    //I can get an array of every bed by mapping over each farms beds and returning each bed
-
     const {id, sq_ft, in_use, crop, dtm, planting_date, harvest_date} = bed
 
-    // function onDelete(){
-    //     fetch(`http://localhost:9292/beds/${id}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(r => r.json())
-    //     .then(bed => {
-    //         setAllFarms([...allFarms].filter(obj => obj.id !== id))
-    //     })
-    // }
+    const updatedBeds = []
+    const updatedFarms = [...allFarms]
 
-    //add onClick={onDelete}
+    function onDelete(){
+        fetch(`http://localhost:9292/beds/${id}`, {
+            method: "DELETE"
+        })
+        .then(r => r.json())
+        .then(bed => {
+            console.log(bed)
+            for (let i=0; i < allFarms.length; i++){
+                updatedBeds.push(allFarms[i].beds.filter(bed => bed.id !== id))
+            }
+            for (let i=0; i < updatedFarms.length; i++){
+                updatedFarms[i].beds = []
+            }
+            console.log(updatedFarms)
+            for (let i=0; i < allFarms.length; i++){
+                updatedFarms[i].beds.push(updatedBeds[i])
+            }
+            //The updatedFarms array is not structured in the same way as allFarms
+            console.log(updatedFarms)
+            setAllFarms(updatedFarms)
+        })
+    }
 
     return(
         <tr>
@@ -31,7 +41,7 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
             <td>{planting_date}</td>
             <td>{harvest_date}</td>
             <td>
-                <button className="delete">Delete</button>
+                <button onClick={onDelete} className="delete">Delete</button>
             </td>
         </tr>
     )

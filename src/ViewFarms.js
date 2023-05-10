@@ -1,21 +1,15 @@
 import React from 'react'
 import TableRow from './TableRow'
 
-function ViewFarms({allFarms}) {
-
-    console.log(allFarms)
+function ViewFarms({allFarms, setAllFarms}) {
 
     const tableRowComps = []
 
     for (let i=0; i < allFarms.length; i++) {
-        tableRowComps.push(allFarms[i].beds.map(bed => <TableRow key={bed.id} bed={bed} farmName={allFarms[i].name}/>))
+        tableRowComps.push(allFarms[i].beds.map(bed => <TableRow allFarms={allFarms} setAllFarms={setAllFarms} key={bed.id} bed={bed} farmName={allFarms[i].name}/>))
     }
 
     console.log(tableRowComps)
-
-    //allFarms.map(farm => <TableRow farm={farm} key={farm.beds.index}/>)
-    // const testBeds = allFarms[0].map(bed => <TableRow bed={bed}/>)
-    // console.log(testBeds)
 
     return(
         <div>
