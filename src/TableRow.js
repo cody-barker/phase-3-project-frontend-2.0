@@ -4,8 +4,8 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
     
     const {id, sq_ft, in_use, crop, dtm, planting_date, harvest_date} = bed
 
-    const updatedBeds = []
-    const updatedFarms = [...allFarms]
+    let updatedBeds = []
+    let updatedFarms = [...allFarms]
 
     function onDelete(){
         fetch(`http://localhost:9292/beds/${id}`, {
@@ -13,19 +13,26 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(bed => {
+            
             console.log(bed)
+
             for (let i=0; i < allFarms.length; i++){
                 updatedBeds.push(allFarms[i].beds.filter(bed => bed.id !== id))
             }
-            for (let i=0; i < updatedFarms.length; i++){
+
+            console.log(updatedBeds)
+
+            for (let i=0; i < allFarms.length; i++){
                 updatedFarms[i].beds = []
             }
             console.log(updatedFarms)
+
             for (let i=0; i < allFarms.length; i++){
                 updatedFarms[i].beds.push(updatedBeds[i])
             }
             //The updatedFarms array is not structured in the same way as allFarms
             console.log(updatedFarms)
+
             setAllFarms(updatedFarms)
         })
     }

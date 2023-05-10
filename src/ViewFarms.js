@@ -3,13 +3,11 @@ import TableRow from './TableRow'
 
 function ViewFarms({allFarms, setAllFarms}) {
 
-    const tableRowComps = []
+    let tableRowComps = []
 
     for (let i=0; i < allFarms.length; i++) {
         tableRowComps.push(allFarms[i].beds.map(bed => <TableRow allFarms={allFarms} setAllFarms={setAllFarms} key={bed.id} bed={bed} farmName={allFarms[i].name}/>))
     }
-
-    console.log(tableRowComps)
 
     return(
         <div>
