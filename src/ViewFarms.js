@@ -1,6 +1,9 @@
 import React from 'react'
+import TableRow from './TableRow'
 
 function ViewFarms({allFarms}) {
+
+    //tableRowComps = allFarms.map(farm => <TableRow farm={farm}/>)
 
     return(
         <div>

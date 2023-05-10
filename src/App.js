@@ -18,6 +18,7 @@ function App() {
    * [] Proper front end state management. Do NOT rely on GET requests to update state.
    * [] RESTful routes
    * [] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
+   * [] Write some interesting queries
    * 
    * Features
    * - The API has a farms table and an associated beds table. A farm has many beds, and a bed belongs to a farm.
@@ -60,8 +61,6 @@ function App() {
     .then(r => r.json())
     .then(farms => setAllFarms(farms))
   },[])
-
-  console.log(allFarms)
 
   return (
     <div className="App">
