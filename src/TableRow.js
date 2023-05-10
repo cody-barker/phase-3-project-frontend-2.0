@@ -13,26 +13,10 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(bed => {
-            
             console.log(bed)
-
             for (let i=0; i < allFarms.length; i++){
-                updatedBeds.push(allFarms[i].beds.filter(bed => bed.id !== id))
+                updatedFarms[i].beds = updatedFarms[i].beds.filter(bed => bed.id !== id)
             }
-
-            console.log(updatedBeds)
-
-            for (let i=0; i < allFarms.length; i++){
-                updatedFarms[i].beds = []
-            }
-            console.log(updatedFarms)
-
-            for (let i=0; i < allFarms.length; i++){
-                updatedFarms[i].beds.push(updatedBeds[i])
-            }
-            //The updatedFarms array is not structured in the same way as allFarms
-            console.log(updatedFarms)
-
             setAllFarms(updatedFarms)
         })
     }
