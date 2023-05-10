@@ -35,6 +35,22 @@ function App() {
    *    AddBed (CREATE)
    *    UpdateFarm (UPDATE)
    * 
+   * 
+   * DB Schema
+   * table "beds"
+    t.integer "sq_ft"
+    t.string "in_use"
+    t.string "crop"
+    t.date "planting_date"
+    t.date "harvest_date"
+    t.integer "farm_id"
+    t.integer "dtm"
+
+    table "farms"
+    t.string "name"
+    t.string "city"
+    t.string "state"
+   * 
    */
 
   const [allFarms, setAllFarms] = useState([])
