@@ -4,7 +4,6 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
     
     const {id, sq_ft, in_use, crop, dtm, planting_date, harvest_date} = bed
 
-    let updatedBeds = []
     let updatedFarms = [...allFarms]
 
     function onDelete(){
@@ -13,7 +12,6 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(bed => {
-            console.log(bed)
             for (let i=0; i < allFarms.length; i++){
                 updatedFarms[i].beds = updatedFarms[i].beds.filter(bed => bed.id !== id)
             }

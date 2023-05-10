@@ -70,16 +70,10 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={
-              <ViewFarms
-                allFarms={allFarms}
-                setAllFarms={setAllFarms}
-            />}
-          />
+            element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path ="/addafarm"
-            element={<AddAFarm />}
-          />
+            element={<AddAFarm />}/>
         </Routes>
     </div>
   );
