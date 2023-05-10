@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
-import Home from './Home'
+import ViewFarms from './ViewFarms'
 import AddAFarm from './AddAFarm'
 import NavBar from './NavBar'
 import './App.css';
@@ -26,7 +26,14 @@ function App() {
    * - A user can update a farm. (UPDATE)
    * - A user can delete farms and beds. (DELETE)
    * 
+   * Component Hierachy
    * App
+   *    NavBar
+   *    AllFarmsTable
+   *      TableRow
+   *    AddFarmForm
+   *    AddBedForm
+   *    UpdateFarmForm
    * 
    * 
    */
@@ -45,7 +52,7 @@ function App() {
     <div className="App">
       <NavBar />
         <Routes>
-          <Route path="/" element={<Home allFarms={allFarms}/>}/>
+          <Route path="/" element={<ViewFarms allFarms={allFarms}/>}/>
           <Route path ="/addafarm" element={<AddAFarm />}/>
         </Routes>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Home({allFarms}) {
+function ViewFarms({allFarms}) {
 
     return(
         <div>
@@ -18,11 +18,11 @@ function Home({allFarms}) {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                
                 </tbody>
             </table>
         </div>
     )
 }
 
-export default Home
+export default ViewFarms
