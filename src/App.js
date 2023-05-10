@@ -29,11 +29,11 @@ function App() {
    * Component Hierachy
    * App
    *    NavBar
-   *    AllFarmsTable
+   *    ViewFarms
    *      TableRow
-   *    AddFarmForm
-   *    AddBedForm
-   *    UpdateFarmForm
+   *    AddFarm
+   *    AddBed
+   *    UpdateFarm
    * 
    * 
    */
