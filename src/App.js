@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import ViewFarms from './ViewFarms'
 import AddAFarmOrBed from './AddAFarmOrBed'
+import UpdateAFarmOrBed from './UpdateAFarmOrBed'
 import RemoveAFarm from './RemoveAFarm'
 import NavBar from './NavBar'
 import './App.css';
@@ -77,6 +78,9 @@ function App() {
           <Route 
             path ="/add"
             element={<AddAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+          <Route 
+            path="/update"
+            element={<UpdateAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path="/remove"
             element={<RemoveAFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
