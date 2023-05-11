@@ -37,7 +37,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
         crop,
         dtm,
         plantingDate,
-        HarvestDate
+        harvestDate
     } = inputState
 
     // const [farmName, setFarmName] = useState("")
@@ -130,38 +130,71 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
                     <button className="update-btn" type="submit">Submit</button>
                 </form>
             </div>
-            
+
             <div className="add-a-bed-container">
                 <h2>Add a Bed</h2>
+
                 <form>
-                    <label>Square Feet
+                    <label>
+                        Square Feet
                         <input 
                             type="number"
                             name="sqFt"
                             onChange={onInputChange}
-                            value={sqFt}
-                         ></input>
+                            value={sqFt}>
+                        </input>
+
                     </label>
-                    <label>In Use
+
+                    <label>
+                        In Use
                         <select 
-                        onChange={onInputChange}
-                        value={inUse}
-                        name="inUse">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
+                            onChange={onInputChange}
+                            value={inUse}
+                            name="inUse">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                         </select>
                     </label>
-                    <label>Crop
-
+        
+                    <label>
+                        Crop
+                        <input
+                            type="text"
+                            onChange={onInputChange}
+                            value={crop}
+                            name="crop">
+                        </input>
                     </label>
-                    <label>Days to Maturity
 
+                    <label>
+                        Days to Maturity
+                        <input
+                            type="number"
+                            onChange={onInputChange}
+                            value={dtm}
+                            name="dtm">
+                        </input>
                     </label>
-                    <label>Planting Date
 
+                    <label>
+                        Planting Date
+                            <input
+                                type="date"
+                                onChange={onInputChange}
+                                name="plantingDate"
+                                value={plantingDate}>
+                            </input>
                     </label>
-                    <label>Harvest Date
 
+                    <label>
+                        Harvest Date
+                        <input
+                            name="harvestDate"
+                            type="date"
+                            onChange={onInputChange}
+                            value={harvestDate}>
+                        </input>
                     </label>
                 </form>
             </div>

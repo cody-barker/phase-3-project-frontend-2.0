@@ -52,6 +52,8 @@ tr, td {
 input {
   margin: 10px;
   color: #2c580f;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 .update-btn {
@@ -98,16 +100,19 @@ body {
 }
 
 form {
+
   padding: 10px;
   margin: auto;
-  width: 300px;
+  width: 150px;
   color: #2c580f;
 }
 
-input[type=text] {
-  width: 90%;
+input {
+  width: 100%;
   padding: 3px;
   margin: 5px;
+  box-sizing: border-box;
+  display: inline-block;
 }
 
 button {
@@ -134,9 +139,15 @@ button[type=submit]{
 }
 
 select {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center ;
   padding: 2px;
   border-radius: 0.33em;
   color: #2c580f;
+  width: 100%;
+  margin: 5px;
+  padding: 3px;
 }
 
 .add-a-farm-container {
