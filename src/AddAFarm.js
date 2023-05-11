@@ -3,7 +3,7 @@ import React from 'react'
 function AddAFarm() {
     return(
         <div>
-            Add a Farm
+            Add A Farm
         </div>
     )
 }

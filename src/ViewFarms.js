@@ -5,8 +5,16 @@ function ViewFarms({allFarms, setAllFarms}) {
 
     let tableRowComps = []
 
-    for (let i=0; i < allFarms.length; i++) {
-        tableRowComps.push(allFarms[i].beds.map(bed => <TableRow allFarms={allFarms} setAllFarms={setAllFarms} key={bed.id} bed={bed} farmName={allFarms[i].name}/>))
+    for (let i=0; i < allFarms.length; i++) { 
+        tableRowComps.push(allFarms[i].beds.map(bed => {
+            <TableRow 
+                key={bed.id}
+                bed={bed}
+                allFarms={allFarms}
+                setAllFarms={setAllFarms} 
+                farmName={allFarms[i].name}
+            />
+        }))
     }
 
     return(
