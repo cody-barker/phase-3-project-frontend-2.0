@@ -42,32 +42,6 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         harvestDate
     } = inputState
 
-    // const [farmName, setFarmName] = useState("")
-    // const [farmCity, setFarmCity] = useState("")
-    // const [farmState, setFarmState] = useState("")
-    // const [sqFt, setSqFt] = useState("")
-    // const [inUse, setInUse] = useState("")
-
-    // function onFarmNameChange(e) {
-    //     setFarmName(e.target.value)
-    // }
-
-    // function onFarmCityChange(e) {
-    //     setFarmCity(e.target.value)
-    // }
-
-    // function onFarmStateChange(e) {
-    //     setFarmState(e.target.value)
-    // }
-
-    // function onSqFtChange(e) {
-    //     setSqFt(e.target.value)
-    // }
-
-    // function onInUseChange(e) {
-    //     setInUse(e.target.value)
-    // }
-
     const newFarm = {
         name: farmName,
         city: farmCity,
@@ -83,9 +57,6 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         planting_date: plantingDate,
         harvest_date: harvestDate
     }
-
-    //add a condition to updating state with the new farm only if the db addition is uniq
-
 
     function onAddFarm(e) {
         e.preventDefault()

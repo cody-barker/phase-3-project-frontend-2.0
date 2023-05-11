@@ -52,6 +52,14 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         })
     }
 
+    const selectOptions = allFarms.map(farm => {
+        <option 
+            key={farm.id}
+            value={farm.name}>
+            {farm.name}
+        </option>
+    })
+
     function onUpdateFarm(e) {
         e.preventDefault()
         fetch(`http://localhost:9292/farms/${farmId}`, {
@@ -92,17 +100,17 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
                 farmState: state})}
     }
 
-    const selectOptions = allFarms.map(farm => <option key={farm.id} value={farm.name}>{farm.name}</option>)
-
     return (
         <div>
-            <div className="add-a-farm-container">
+            <div className="update-a-farm-container">
                 <h2>Update a Farm</h2>
-
                 <form onSubmit={onUpdateFarm}>
-
-                <select onChange={copyFarmData}>
-                    <option value="Select a Farm">Select a Farm</option>
+                <select 
+                    onChange={copyFarmData}>
+                        <option
+                            value="Select a Farm">
+                            Select a Farm
+                        </option>
                     {selectOptions}
                 </select>
 
