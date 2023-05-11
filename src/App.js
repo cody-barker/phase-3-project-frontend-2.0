@@ -12,7 +12,7 @@ function App() {
    * Deliverables
    * [x]Use Active Record
    * [x] At least two models with a one-to-many relationship
-   * [x] Create and use at least Create and Read actions in Sinatra for both models
+   * [] Create and use at least Create and Read actions in Sinatra for both models
    * [x] Full CRUD for one model
    * [x] Update action should use a pre-filled form with the existing values for the object.
    * [x] On submission of the update form, the object should update/re-render
@@ -20,6 +20,7 @@ function App() {
    * [x] Proper front end state management. Do NOT rely on GET requests to update state.
    * [x] RESTful routes
    * [x] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
+   * [] Fix .then for addabed
    * [] Include some validation so farms can't be duplicated if all fields match
    * [] Include some validation so beds can't created if the farm doesn't exist
    * [] Add a condition to updating state with the new farm only if the db addition is uniq

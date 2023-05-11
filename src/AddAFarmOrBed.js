@@ -84,7 +84,17 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
             body: JSON.stringify(newBed)
         })
         .then(r => r.json())
-        .then(bed => console.log(bed))
+        .then(newBed => {
+            const updatedFarms = allFarms.map(farm => {
+                if (farm.id === newBed.farm.id) {
+                    farm.beds.push(newBed)
+                    return(farm)
+                } else {
+                    return farm
+                }
+            })
+            setAllFarms(updatedFarms)
+        })
     }
 
     return(
