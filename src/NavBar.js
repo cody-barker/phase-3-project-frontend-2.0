@@ -5,7 +5,7 @@ function NavBar() {
     return(
         <nav id="navbar">
             <NavLink to="/">View Farms</NavLink>
-            <NavLink to="/addafarm">Add a Farm</NavLink>
+            <NavLink to="/addremovefarm">Add/Remove a Farm</NavLink>
         </nav>
     )
 }

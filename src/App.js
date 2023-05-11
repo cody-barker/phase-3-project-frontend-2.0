@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import ViewFarms from './ViewFarms'
-import AddAFarm from './AddAFarm'
+import AddRemoveFarm from './AddRemoveFarm'
 import NavBar from './NavBar'
 import './App.css';
 
@@ -72,8 +72,8 @@ function App() {
             path="/" 
             element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
-            path ="/addafarm"
-            element={<AddAFarm />}/>
+            path ="/addremovefarm"
+            element={<AddRemoveFarm />}/>
         </Routes>
     </div>
   );
