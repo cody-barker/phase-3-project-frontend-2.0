@@ -2,25 +2,11 @@ import React, {useState} from 'react'
 
 function UpdateAFarmOrBed({allFarms, setAllFarms}) {
 
-    /**
-     * Deliverables
-     * 
-     * [] Have a form which autofills with a specific farms' data that needs to be updated
-     * [] Have a form which autofills with a specific beds' data that needs to be updated
-     * 
-     * 
-     * 1. Choose a farm by it's ID
-     *      -Do so by entering an ID into an input
-     *      -When that input changes, filter on ...allFarms for a farm with a matching ID
-     *          -Then setState for farmName, city, and state based on the properties of that farm
-     */
-
     const [inputState, setInputState] = useState({
         farmName: "",
         farmCity: "",
         farmState: "",
         farmId: "",
-        selectFarm: {},
         sqFt: "",
         inUse: "Yes",
         crop: "",
@@ -28,14 +14,6 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         plantingDate: "",
         harvestDate: ""
     })
-
-    function onInputChange(e) {
-        const value = e.target.value
-        setInputState({
-            ...inputState,
-            [e.target.name]: value
-        })
-    }
     
     const {
         farmName,
@@ -51,7 +29,6 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
     } = inputState
 
     const updatedFarm = {
-        id: farmId,
         name: farmName,
         city: farmCity,
         state: farmState,
@@ -67,12 +44,17 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         harvest_date: harvestDate
     }
 
-    //add a condition to updating state with the new farm only if the db addition is uniq
-
+    function onInputChange(e) {
+        const value = e.target.value
+        setInputState({
+            ...inputState,
+            [e.target.name]: value
+        })
+    }
 
     function onUpdateFarm(e) {
         e.preventDefault()
-        fetch('http://localhost:9292/farms', {
+        fetch(`http://localhost:9292/farms/${farmId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type" : "application/json"
@@ -80,9 +62,15 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
             body: JSON.stringify(updatedFarm)
         })
         .then(r => r.json())
-        .then(farm => {
-            setAllFarms([...allFarms, farm])
-            setInputState({...inputState, farmName:"", farmCity:"", farmState:""})
+        .then(patchedFarm => {
+            const updatedFarms = allFarms.map(farm => {
+                if (farm.id === patchedFarm.id) {
+                    return patchedFarm
+                } else {
+                    return farm
+                }
+            })
+            setAllFarms(updatedFarms)
         })
     }
 
@@ -95,9 +83,10 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
                 farmState: ""})}
         else {
             const farmToUpdate = allFarms.find(farm => farm.name === e.target.value)
-            const {name,  city, state} = farmToUpdate
+            const {id, name, city, state} = farmToUpdate
             setInputState({
                 ...inputState,
+                farmId: id,
                 farmName: name,
                 farmCity: city,
                 farmState: state})}
@@ -110,12 +99,12 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
             <div className="add-a-farm-container">
                 <h2>Update a Farm</h2>
 
+                <form onSubmit={onUpdateFarm}>
+
                 <select onChange={copyFarmData}>
                     <option value="Select a Farm">Select a Farm</option>
                     {selectOptions}
                 </select>
-
-                <form onSubmit={onUpdateFarm}>
 
                     <label>
                         Farm Name
