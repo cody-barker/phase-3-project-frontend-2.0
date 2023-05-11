@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function AddRemoveFarm() {
+function AddRemoveFarm({allFarms, setAllFarms}) {
     /**
      * Deliverables
      * 
@@ -26,9 +26,28 @@ function AddRemoveFarm() {
     
     console.log(farmName)
 
+    const newFarm = {
+        name: farmName,
+        city: farmCity,
+        state: farmState,
+    }
+
+    function onAddFarm(e) {
+        e.preventDefault()
+        fetch('http://localhost:9292/farms', {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(newFarm)
+        })
+        .then(r => r.json())
+        .then(farm => setAllFarms([...allFarms, farm]))
+    }
+
     return(
         <div>
-            <form>
+            <form onSubmit={onAddFarm}>
                 <label>Farm Name</label>
                 <input onChange={onFarmNameChange} value={farmName}  type="text"></input>
                 <label>City</label>

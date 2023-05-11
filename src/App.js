@@ -73,7 +73,7 @@ function App() {
             element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path ="/addremovefarm"
-            element={<AddRemoveFarm />}/>
+            element={<AddRemoveFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
         </Routes>
     </div>
   );
