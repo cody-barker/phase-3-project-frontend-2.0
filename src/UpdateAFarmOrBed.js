@@ -53,11 +53,13 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
     }
 
     const selectOptions = allFarms.map(farm => {
+        return(
         <option 
             key={farm.id}
             value={farm.name}>
             {farm.name}
         </option>
+        )
     })
 
     function onUpdateFarm(e) {
