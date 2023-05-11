@@ -20,6 +20,7 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         farmCity: "",
         farmState: "",
         farmId: "",
+        selectFarm: {},
         sqFt: "",
         inUse: "Yes",
         crop: "",
@@ -85,23 +86,36 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         })
     }
 
-    const selectOptions = allFarms.map(farm => <option key={farm.id} value={farm.id}>{farm.name}</option>)
-
-    function onSelectFarmChange(e) {
-        const selectedFarm = allFarms.find(farm => farm.id === e.target.value)
-        const {name, city, state} = selectedFarm
-        setInputState({...inputState, farmName:name, farmCity:city, farmState:state})
+    function copyFarmData(e) {
+        if (e.target.value === "Select a Farm") {
+            setInputState({
+                ...inputState,
+                farmName: "",
+                farmCity: "",
+                farmState: ""})}
+        else {
+            const farmToUpdate = allFarms.find(farm => farm.name === e.target.value)
+            const {name,  city, state} = farmToUpdate
+            setInputState({
+                ...inputState,
+                farmName: name,
+                farmCity: city,
+                farmState: state})}
     }
+
+    const selectOptions = allFarms.map(farm => <option key={farm.id} value={farm.name}>{farm.name}</option>)
 
     return (
         <div>
             <div className="add-a-farm-container">
                 <h2>Update a Farm</h2>
-                <form onSubmit={onUpdateFarm}>
 
-                    <select onChange={onSelectFarmChange}>
-                        {selectOptions}
-                    </select>
+                <select onChange={copyFarmData}>
+                    <option value="Select a Farm">Select a Farm</option>
+                    {selectOptions}
+                </select>
+
+                <form onSubmit={onUpdateFarm}>
 
                     <label>
                         Farm Name
