@@ -11,6 +11,7 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
     const [farmName, setFarmName] = useState("")
     const [farmCity, setFarmCity] = useState("")
     const [farmState, setFarmState] = useState("")
+    const [farmID, setFarmID] = useState("")
 
     function onFarmNameChange(e) {
         setFarmName(e.target.value)
@@ -51,27 +52,31 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
         })
     }
 
-   const tableRows = allFarms.map(farm => {
+    const tableRows = allFarms.map(farm => {
         return (
-            <tr>
+            <tr key={farm.id}>
                 <td>{farm.name}</td>
                 <td>{farm.id}</td>
             </tr>
          )
-   })
+    })
+
+    function onFarmIDChange(e) {
+        setFarmID(e.target.value)
+    }
 
 
-    // function onRemoveFarm(e) {
-    //     fetch(`http://localhost:9292/farms/${id}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(r => r.json())
-    //     .then(deletedFarm => {
-    //         console.log(deletedFarm)
-    //         setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
-    //         setSelectFarmID("")
-    //     })
-    // }
+    function onRemoveFarm(e) {
+        fetch(`http://localhost:9292/farms/${farmID}`, {
+            method: "DELETE"
+        })
+        .then(r => r.json())
+        .then(deletedFarm => {
+            console.log(deletedFarm)
+            setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
+            setFarmID("")
+        })
+    }
 
     return(
         <div>
@@ -100,6 +105,12 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
                         {tableRows}
                     </tbody>
                 </table>
+                <form onSubmit={onRemoveFarm}>
+                    <label>Enter Farm ID
+                    <input onChange={onFarmIDChange} type="integer" value={farmID}></input>
+                    </label>
+                    <button className="delete">Delete</button>
+                </form>
             </div>
         </div>
     )
