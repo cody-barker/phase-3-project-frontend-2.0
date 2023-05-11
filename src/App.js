@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import ViewFarms from './ViewFarms'
-import AddRemoveFarm from './AddRemoveFarm'
+import AddFarmOrBed from './AddFarmOrBed'
+import RemoveAFarm from './RemoveAFarm'
 import NavBar from './NavBar'
 import './App.css';
 
@@ -10,13 +11,13 @@ function App() {
    * Deliverables
    * [x]Use Active Record
    * [x] At least two models with a one-to-many relationship
-   * [] Create and use at least Create and Read actions in Sinatra for both models
+   * [x] Create and use at least Create and Read actions in Sinatra for both models
    * [] Full CRUD for one model
    * [] Update action should use a pre-filled form with the existing values for the object.
    * [] On submission of the update form, the object should update/re-render
    * [] Build a React front end that interacts with the API to perform CRUD actions
    * [] Proper front end state management. Do NOT rely on GET requests to update state.
-   * [] RESTful routes
+   * [x] RESTful routes
    * [] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
    * [] Write some interesting queries
    * 
@@ -32,9 +33,9 @@ function App() {
    *    NavBar
    *    ViewFarms (READ)
    *      TableRow (DELETE)
-   *    AddFarm (CREATE)
-   *    AddBed (CREATE)
-   *    UpdateFarm (UPDATE)
+   *    AddFarmOrBed (CREATE)
+   *    UpdateFarmOrBed (UPDATE)
+   *    RemoveFarm (DELETE)
    * 
    * 
    * DB Schema
@@ -72,8 +73,11 @@ function App() {
             path="/" 
             element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
-            path ="/addremovefarm"
-            element={<AddRemoveFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            path ="/add"
+            element={<AddFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+          <Route 
+            path="/remove"
+            element={<RemoveAFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
         </Routes>
     </div>
   );
