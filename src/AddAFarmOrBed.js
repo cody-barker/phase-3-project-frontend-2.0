@@ -70,7 +70,11 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         .then(r => r.json())
         .then(farm => {
             setAllFarms([...allFarms, farm])
-            setInputState({...inputState, farmName:"", farmCity:"", farmState:""})
+            setInputState({
+                ...inputState, 
+                farmName:"",
+                farmCity:"",
+                farmState:""})
         })
     }
 

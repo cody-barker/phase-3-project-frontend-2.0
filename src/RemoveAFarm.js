@@ -7,8 +7,10 @@ function RemoveAFarm({allFarms, setAllFarms}) {
     const tableRows = allFarms.map(farm => {
         return (
             <tr key={farm.id}>
-                <td>{farm.name}</td>
                 <td>{farm.id}</td>
+                <td>{farm.name}</td>
+                <td>{farm.city}</td>
+                <td>{farm.state}</td>
             </tr>
          )
     })
@@ -36,8 +38,10 @@ function RemoveAFarm({allFarms, setAllFarms}) {
                 <table>
                     <thead>
                         <tr>
-                            <th>Farm Name</th>
                             <th>Farm ID</th>
+                            <th>Farm Name</th>
+                            <th>Farm City</th>
+                            <th>Farm State</th>
                         </tr>
                     </thead>
                     <tbody>
