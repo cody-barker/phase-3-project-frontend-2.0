@@ -53,7 +53,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
 
     return(
         <div>
-            <div className="add-farm-container">
+            <div className="add-a-farm-container">
                 <h2>Add a Farm</h2>
                 <form onSubmit={onAddFarm}>
                     <label>Farm Name</label>
@@ -64,6 +64,10 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
                     <input onChange={onFarmStateChange} value={farmState} type="text"></input>
                     <button className="update-btn" type="submit">Submit</button>
                 </form>
+            </div>
+            <div className="add-a-bed-container">
+                <h2>Add a Bed</h2>
+           
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TableRow({bed, farmName, allFarms, setAllFarms}) {
+function TableRow({bed, farmName, farmID, allFarms, setAllFarms}) {
     
     const {id, sq_ft, in_use, crop, dtm, planting_date, harvest_date} = bed
 
@@ -22,6 +22,7 @@ function TableRow({bed, farmName, allFarms, setAllFarms}) {
     return(
         <tr>
             <td>{farmName}</td>
+            <td>{farmID}</td>
             <td>{id}</td>
             <td>{sq_ft}</td>
             <td>{in_use}</td>

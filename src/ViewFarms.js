@@ -14,6 +14,7 @@ function ViewFarms({allFarms, setAllFarms}) {
                     allFarms={allFarms}
                     setAllFarms={setAllFarms} 
                     farmName={allFarms[i].name}
+                    farmID={allFarms[i].id}
                 />
             )
         }))
@@ -25,6 +26,7 @@ function ViewFarms({allFarms, setAllFarms}) {
                 <thead>
                     <tr>
                     <th>Farm Name</th>
+                    <th>Farm ID</th>
                     <th>Bed ID</th>
                     <th>Sq Ft</th>
                     <th>In Use</th>
