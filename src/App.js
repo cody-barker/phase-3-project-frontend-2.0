@@ -19,6 +19,8 @@ function App() {
    * [] Proper front end state management. Do NOT rely on GET requests to update state.
    * [x] RESTful routes
    * [] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
+   * [] Include some validation so farms can't be duplicated if all fields match
+   * [] Include some validation so beds can't created if the farm doesn't exist
    * [] Write some interesting queries
    * 
    * Features

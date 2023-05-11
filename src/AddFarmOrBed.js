@@ -12,6 +12,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
         farmName: "",
         farmCity: "",
         farmState: "",
+        farmId: "",
         sqFt: "",
         inUse: "Yes",
         crop: "",
@@ -32,6 +33,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
         farmName,
         farmCity,
         farmState,
+        farmId,
         sqFt,
         inUse,
         crop,
@@ -72,6 +74,16 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
         state: farmState,
     }
 
+    const newBed = {
+        farm_id: farmId,
+        sq_ft: sqFt,
+        in_use: inUse,
+        crop: crop,
+        dtm: dtm,
+        planting_date: plantingDate,
+        harvest_date: harvestDate
+    }
+
     //add a condition to updating state with the new farm only if the db addition is uniq
 
 
@@ -89,6 +101,19 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
             setAllFarms([...allFarms, farm])
             setInputState({...inputState, farmName:"", farmCity:"", farmState:""})
         })
+    }
+
+    function onAddABed(e) {
+        e.preventDefault()
+        fetch('http://localhost:9292/beds', {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(newBed)
+        })
+        .then(r => r.json())
+        .then(bed => console.log(bed))
     }
 
     return(
@@ -133,8 +158,18 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
 
             <div className="add-a-bed-container">
                 <h2>Add a Bed</h2>
+                <form onSubmit={onAddABed}>
 
-                <form>
+                    <label>
+                        Farm ID
+                        <input
+                        type="number"
+                        name="farmId"
+                        onChange={onInputChange}
+                        value={farmId}>
+                        </input>
+                    </label>
+
                     <label>
                         Square Feet
                         <input 
@@ -196,6 +231,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
                             value={harvestDate}>
                         </input>
                     </label>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
