@@ -46,7 +46,7 @@ function RemoveAFarm({allFarms, setAllFarms}) {
                 </table>
                 <form onSubmit={onRemoveFarm}>
                     <label>Enter Farm ID
-                    <input onChange={onFarmIDChange} type="integer" value={farmID}></input>
+                    <input onChange={onFarmIDChange} type="number" value={farmID}></input>
                     </label>
                     <button className="delete">Delete</button>
                 </form>

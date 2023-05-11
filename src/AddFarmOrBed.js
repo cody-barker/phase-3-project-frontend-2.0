@@ -8,21 +8,63 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
      * [] Allows the user to delete a farm
      */
 
-    const [farmName, setFarmName] = useState("")
-    const [farmCity, setFarmCity] = useState("")
-    const [farmState, setFarmState] = useState("")
+    const [inputState, setInputState] = useState({
+        farmName: "",
+        farmCity: "",
+        farmState: "",
+        sqFt: "",
+        inUse: "Yes",
+        crop: "",
+        dtm: "",
+        plantingDate: "",
+        harvestDate: ""
+    })
 
-    function onFarmNameChange(e) {
-        setFarmName(e.target.value)
+    function onInputChange(e) {
+        const value = e.target.value
+        setInputState({
+            ...inputState,
+            [e.target.name]: value
+        })
     }
 
-    function onFarmCityChange(e) {
-        setFarmCity(e.target.value)
-    }
+    const {
+        farmName,
+        farmCity,
+        farmState,
+        sqFt,
+        inUse,
+        crop,
+        dtm,
+        plantingDate,
+        HarvestDate
+    } = inputState
 
-    function onFarmStateChange(e) {
-        setFarmState(e.target.value)
-    }
+    // const [farmName, setFarmName] = useState("")
+    // const [farmCity, setFarmCity] = useState("")
+    // const [farmState, setFarmState] = useState("")
+    // const [sqFt, setSqFt] = useState("")
+    // const [inUse, setInUse] = useState("")
+
+    // function onFarmNameChange(e) {
+    //     setFarmName(e.target.value)
+    // }
+
+    // function onFarmCityChange(e) {
+    //     setFarmCity(e.target.value)
+    // }
+
+    // function onFarmStateChange(e) {
+    //     setFarmState(e.target.value)
+    // }
+
+    // function onSqFtChange(e) {
+    //     setSqFt(e.target.value)
+    // }
+
+    // function onInUseChange(e) {
+    //     setInUse(e.target.value)
+    // }
 
     const newFarm = {
         name: farmName,
@@ -45,9 +87,7 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
         .then(r => r.json())
         .then(farm => {
             setAllFarms([...allFarms, farm])
-            setFarmName("")
-            setFarmCity("")
-            setFarmState("")
+            setInputState({...inputState, farmName:"", farmCity:"", farmState:""})
         })
     }
 
@@ -56,18 +96,74 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
             <div className="add-a-farm-container">
                 <h2>Add a Farm</h2>
                 <form onSubmit={onAddFarm}>
-                    <label>Farm Name</label>
-                    <input onChange={onFarmNameChange} value={farmName}  type="text"></input>
-                    <label>City</label>
-                    <input onChange={onFarmCityChange} value={farmCity} type="text"></input>
-                    <label>State</label>
-                    <input onChange={onFarmStateChange} value={farmState} type="text"></input>
+
+                    <label>
+                        Farm Name
+                        <input 
+                            onChange={onInputChange}
+                            name="farmName"
+                            value={farmName}
+                            type="text">
+                        </input>
+                    </label>
+
+                    <label>
+                        City
+                        <input 
+                            onChange={onInputChange}
+                            name="farmCity"
+                            value={farmCity}
+                            type="text">
+                        </input>
+                    </label>
+
+                    <label>
+                        State
+                        <input 
+                            onChange={onInputChange}
+                            name="farmState"
+                            value={farmState}
+                            type="text">
+                        </input>
+                    </label>
+
                     <button className="update-btn" type="submit">Submit</button>
                 </form>
             </div>
+            
             <div className="add-a-bed-container">
                 <h2>Add a Bed</h2>
-           
+                <form>
+                    <label>Square Feet
+                        <input 
+                            type="number"
+                            name="sqFt"
+                            onChange={onInputChange}
+                            value={sqFt}
+                         ></input>
+                    </label>
+                    <label>In Use
+                        <select 
+                        onChange={onInputChange}
+                        value={inUse}
+                        name="inUse">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </label>
+                    <label>Crop
+
+                    </label>
+                    <label>Days to Maturity
+
+                    </label>
+                    <label>Planting Date
+
+                    </label>
+                    <label>Harvest Date
+
+                    </label>
+                </form>
             </div>
         </div>
     )
