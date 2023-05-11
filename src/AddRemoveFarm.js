@@ -11,7 +11,6 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
     const [farmName, setFarmName] = useState("")
     const [farmCity, setFarmCity] = useState("")
     const [farmState, setFarmState] = useState("")
-    const [selectFarmID, setSelectFarmID] = useState("")
 
     function onFarmNameChange(e) {
         setFarmName(e.target.value)
@@ -52,23 +51,27 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
         })
     }
 
-    function onSelectFarmChange(e) {
-        setSelectFarmID(e.target.value)
-    }
+   const tableRows = allFarms.map(farm => {
+        return (
+            <tr>
+                <td>{farm.name}</td>
+                <td>{farm.id}</td>
+            </tr>
+         )
+   })
 
-    console.log(selectFarmID)
 
-    function onRemoveFarm(e) {
-        fetch(`http://localhost:9292/farms/${selectFarmID}`, {
-            method: "DELETE"
-        })
-        .then(r => r.json())
-        .then(deletedFarm => {
-            console.log(deletedFarm)
-            setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
-            setSelectFarmID("")
-        })
-    }
+    // function onRemoveFarm(e) {
+    //     fetch(`http://localhost:9292/farms/${id}`, {
+    //         method: "DELETE"
+    //     })
+    //     .then(r => r.json())
+    //     .then(deletedFarm => {
+    //         console.log(deletedFarm)
+    //         setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
+    //         setSelectFarmID("")
+    //     })
+    // }
 
     return(
         <div>
@@ -86,8 +89,17 @@ function AddRemoveFarm({allFarms, setAllFarms}) {
             </div>
             <div className="remove-farm-container">
                 <h2>Remove a Farm</h2>
-                <select onChange={onSelectFarmChange}>{allFarms.map(farm => <option value={farm.id} key={farm.id}>{farm.name}</option>)}</select>
-                <button className="delete" onClick={onRemoveFarm}>Delete</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Farm Name</th>
+                            <th>Farm ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tableRows}
+                    </tbody>
+                </table>
             </div>
         </div>
     )
