@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import ViewFarms from './ViewFarms'
-import AddFarmOrBed from './AddFarmOrBed'
+import AddAFarmOrBed from './AddAFarmOrBed'
 import RemoveAFarm from './RemoveAFarm'
 import NavBar from './NavBar'
 import './App.css';
@@ -35,8 +35,8 @@ function App() {
    *    NavBar
    *    ViewFarms (READ)
    *      TableRow (DELETE)
-   *    AddFarmOrBed (CREATE)
-   *    UpdateFarmOrBed (UPDATE)
+   *    AddAFarmOrBed (CREATE)
+   *    UpdateAFarmOrBed (UPDATE)
    *    RemoveFarm (DELETE)
    * 
    * 
@@ -76,7 +76,7 @@ function App() {
             element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path ="/add"
-            element={<AddFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            element={<AddAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path="/remove"
             element={<RemoveAFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>

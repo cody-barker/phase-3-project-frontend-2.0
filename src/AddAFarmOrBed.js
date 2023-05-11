@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function AddFarmOrBed({allFarms, setAllFarms}) {
+function AddAFarmOrBed({allFarms, setAllFarms}) {
     /**
      * Deliverables
      * 
@@ -238,4 +238,4 @@ function AddFarmOrBed({allFarms, setAllFarms}) {
     )
 }
 
-export default AddFarmOrBed
+export default AddAFarmOrBed
