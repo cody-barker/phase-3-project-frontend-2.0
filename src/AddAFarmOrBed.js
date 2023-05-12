@@ -102,7 +102,16 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
                         return farm
                     }
                 })
-                setAllFarms(updatedFarms)}
+                setAllFarms(updatedFarms)
+                setInputState({
+                    ...inputState, 
+                    farmId: "",
+                    sqFt: "",
+                    inUse: "",
+                    crop: "",
+                    dtm: "",
+                    plantingDate: "",
+                    harvestDate: ""})}
             else {
                 alert("Please enter a valid Farm ID.")
             }
