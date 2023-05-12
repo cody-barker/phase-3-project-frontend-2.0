@@ -41,25 +41,8 @@ function App() {
    *    AddAFarmOrBed (CREATE)
    *    UpdateAFarmOrBed (UPDATE)
    *    RemoveFarm (DELETE)
-   * 
-   * 
-   * DB Schema
-   * table "beds"
-    t.integer "sq_ft"
-    t.string "in_use"
-    t.string "crop"
-    t.date "planting_date"
-    t.date "harvest_date"
-    t.integer "farm_id"
-    t.integer "dtm"
-
-    table "farms"
-    t.string "name"
-    t.string "city"
-    t.string "state"
-   * 
-   */
-
+   */ 
+   
   const [allFarms, setAllFarms] = useState([])
 
   useEffect(() => {
@@ -67,8 +50,6 @@ function App() {
     .then(r => r.json())
     .then(farms => setAllFarms(farms))
   },[])
-
-  console.log(allFarms)
 
   return (
     <div className="App">

@@ -1,13 +1,7 @@
 import React, {useState} from 'react'
 
 function AddAFarmOrBed({allFarms, setAllFarms}) {
-    /**
-     * Deliverables
-     * 
-     * [x] Have a controlled form that allows the user to add a farm
-     * [] Allows the user to delete a farm
-     */
-
+  
     const [inputState, setInputState] = useState({
         farmName: "",
         farmCity: "",
@@ -20,14 +14,6 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         plantingDate: "",
         harvestDate: ""
     })
-
-    function onInputChange(e) {
-        const value = e.target.value
-        setInputState({
-            ...inputState,
-            [e.target.name]: value
-        })
-    }
 
     const {
         farmName,
@@ -56,6 +42,14 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         dtm: dtm,
         planting_date: plantingDate,
         harvest_date: harvestDate
+    }
+
+    function onInputChange(e) {
+        const value = e.target.value
+        setInputState({
+            ...inputState,
+            [e.target.name]: value
+        })
     }
 
     function onAddFarm(e) {

@@ -25,7 +25,6 @@ function RemoveAFarm({allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(deletedFarm => {
-            console.log(deletedFarm)
             setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
             setFarmID("")
         })
