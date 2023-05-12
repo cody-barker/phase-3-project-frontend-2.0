@@ -21,8 +21,8 @@ function App() {
    * [x] RESTful routes
    * [x] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
    * [x] Include some validation so farms can't be duplicated if all fields match
-   * [] Clear fields for add a bed after submission
-   * [] Include some validation so beds can't be created if the farm doesn't exist
+   * [x] Clear fields for add a bed after submission
+   * [x] Include some validation so beds can't be created if the farm doesn't exist
    * [] Include Update option for Beds
    * [] Write some interesting queries
    * 
