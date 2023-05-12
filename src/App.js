@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import CropTable from './CropTable'
 import AddAFarmOrBed from './AddAFarmOrBed'
 import UpdateAFarm from './UpdateAFarm'
-import FarmTable from './RemoveAFarm'
+import FarmTable from './FarmTable'
 import NavBar from './NavBar'
 import './App.css';
 

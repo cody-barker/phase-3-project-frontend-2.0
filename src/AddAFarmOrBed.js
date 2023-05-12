@@ -45,10 +45,9 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
     }
 
     function onInputChange(e) {
-        const value = e.target.value
         setInputState({
             ...inputState,
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -65,7 +64,7 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         .then(newFarm => {
             if (allFarms.find(farm =>
                     farm.name === newFarm.name))
-                    {alert("This Farm already exists and will not be added.")}
+                    {alert("This farm already exists and will not be added.")}
             else {
                 setAllFarms([...allFarms, newFarm])
                 setInputState({

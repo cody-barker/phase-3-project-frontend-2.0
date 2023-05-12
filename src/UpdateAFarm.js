@@ -23,10 +23,9 @@ function UpdateAFarm({allFarms, setAllFarms}) {
     }
 
     function onInputChange(e) {
-        const value = e.target.value
         setInputState({
             ...inputState,
-            [e.target.name]: value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -39,6 +38,24 @@ function UpdateAFarm({allFarms, setAllFarms}) {
         </option>
         )
     })
+
+    function copyFarmData(e) {
+        if (e.target.value === "Select a Farm") {
+            setInputState({
+                ...inputState,
+                farmName: "",
+                farmCity: "",
+                farmState: ""})}
+        else {
+            const farmToUpdate = allFarms.find(farm => farm.name === e.target.value)
+            const {id, name, city, state} = farmToUpdate
+            setInputState({
+                ...inputState,
+                farmId: id,
+                farmName: name,
+                farmCity: city,
+                farmState: state})}
+    }
 
     function onUpdateFarm(e) {
         e.preventDefault()
@@ -60,25 +77,6 @@ function UpdateAFarm({allFarms, setAllFarms}) {
             })
             setAllFarms(updatedFarms)
         })
-    }
-
-
-    function copyFarmData(e) {
-        if (e.target.value === "Select a Farm") {
-            setInputState({
-                ...inputState,
-                farmName: "",
-                farmCity: "",
-                farmState: ""})}
-        else {
-            const farmToUpdate = allFarms.find(farm => farm.name === e.target.value)
-            const {id, name, city, state} = farmToUpdate
-            setInputState({
-                ...inputState,
-                farmId: id,
-                farmName: name,
-                farmCity: city,
-                farmState: state})}
     }
 
     return (
