@@ -68,13 +68,21 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
             body: JSON.stringify(newFarm)
         })
         .then(r => r.json())
-        .then(farm => {
-            setAllFarms([...allFarms, farm])
-            setInputState({
-                ...inputState, 
-                farmName:"",
-                farmCity:"",
-                farmState:""})
+        .then(newFarm => {
+            if (allFarms.find(farm =>
+                    farm.name === newFarm.name
+                    &&
+                    farm.city === newFarm.city
+                    &&
+                    farm.state === newFarm.state))
+                    {alert("This Farm already exists and will not be added.")}
+            else {
+                setAllFarms([...allFarms, newFarm])
+                setInputState({
+                    ...inputState, 
+                    farmName:"",
+                    farmCity:"",
+                    farmState:""})}
         })
     }
 
