@@ -1,5 +1,5 @@
 import React from 'react'
-import TableRow from './TableRow'
+import CropTableRow from './CropTableRow'
 
 function CropTable({allFarms, setAllFarms}) {
 
@@ -8,7 +8,7 @@ function CropTable({allFarms, setAllFarms}) {
     for (let i=0; i < allFarms.length; i++) { 
         tableRowComps.push(allFarms[i].beds.map(bed => {
             return (
-                <TableRow 
+                <CropTableRow 
                     key={bed.id}
                     bed={bed}
                     allFarms={allFarms}

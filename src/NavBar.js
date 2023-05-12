@@ -5,9 +5,9 @@ function NavBar() {
     return(
         <nav id="navbar">
             <NavLink to="/">Crop Table</NavLink>
+            <NavLink to="/farmtable">Farm Table</NavLink>
             <NavLink to="/add">Add a Farm or Bed</NavLink>
             <NavLink to="/update">Update a Farm or Bed</NavLink>
-            <NavLink to="/remove">Remove a Farm</NavLink>
         </nav>
     )
 }

@@ -1,61 +1,35 @@
-import React, {useState} from "react";
+import React from "react";
+import FarmTableRow from './FarmTableRow'
 
-function RemoveAFarm({allFarms, setAllFarms}) {
+function FarmTable({allFarms, setAllFarms}) {
 
-    const [farmID, setFarmID] = useState("")
-
-    const tableRows = allFarms.map(farm => {
-        return (
-            <tr key={farm.id}>
-                <td>{farm.id}</td>
-                <td>{farm.name}</td>
-                <td>{farm.city}</td>
-                <td>{farm.state}</td>
-            </tr>
-         )
+    const tableRowComps = allFarms.map(farm => {
+        return(
+            <FarmTableRow 
+            key={farm.id}
+            farm={farm}
+            allFarms={allFarms}
+            setAllFarms={setAllFarms}
+            />
+        )
     })
-
-    function onFarmIDChange(e) {
-        setFarmID(e.target.value)
-    }
-
-    function onRemoveFarm(e) {
-        fetch(`http://localhost:9292/farms/${farmID}`, {
-            method: "DELETE"
-        })
-        .then(r => r.json())
-        .then(deletedFarm => {
-            setAllFarms(...allFarms.filter(farm => farm.id !== deletedFarm.id))
-            setFarmID("")
-        })
-    }
-
-    return(
-        <div>
-            <div className="remove-farm-container">
-                <h2>Remove a Farm</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Farm ID</th>
-                            <th>Farm Name</th>
-                            <th>Farm City</th>
-                            <th>Farm State</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {tableRows}
-                    </tbody>
-                </table>
-                <form onSubmit={onRemoveFarm}>
-                    <label>Enter Farm ID
-                    <input onChange={onFarmIDChange} type="number" value={farmID}></input>
-                    </label>
-                    <button className="delete" type="submit">Delete</button>
-                </form>
-            </div>
-        </div>
+    
+    return (
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Farm Name</th>
+                    <th>Farm City</th>
+                    <th>Farm State</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {tableRowComps}
+            </tbody>
+        </table>
     )
 }
 
-export default RemoveAFarm
+export default FarmTable

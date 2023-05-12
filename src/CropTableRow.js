@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TableRow({bed, farmName, farmID, allFarms, setAllFarms}) {
+function CropTableRow({bed, farmName, farmID, allFarms, setAllFarms}) {
     
     const {id, sq_ft, in_use, crop, dtm, planting_date, harvest_date} = bed
 
@@ -37,4 +37,4 @@ function TableRow({bed, farmName, farmID, allFarms, setAllFarms}) {
     )
 }
 
-export default TableRow
+export default CropTableRow

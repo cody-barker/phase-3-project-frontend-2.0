@@ -3,7 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import CropTable from './CropTable'
 import AddAFarmOrBed from './AddAFarmOrBed'
 import UpdateAFarmOrBed from './UpdateAFarmOrBed'
-import RemoveAFarm from './RemoveAFarm'
+import FarmTable from './RemoveAFarm'
 import NavBar from './NavBar'
 import './App.css';
 
@@ -65,8 +65,8 @@ function App() {
             path="/update"
             element={<UpdateAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
-            path="/remove"
-            element={<RemoveAFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            path="/farmtable"
+            element={<FarmTable allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
         </Routes>
     </div>
   );
