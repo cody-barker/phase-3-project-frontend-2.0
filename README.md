@@ -87,6 +87,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
    * [x] Clear fields for add a bed after submission
    * [x] Include some validation so beds can't be created if the farm doesn't exist
    * [] Include Update option for Beds
+   * [] Update farm by id instead of name
    * [] Write some interesting queries
    * 
    * Features
