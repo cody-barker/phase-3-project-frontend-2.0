@@ -8,7 +8,6 @@ function NavBar() {
             <NavLink to="/farmtable">Farm Table</NavLink>
             <NavLink to="/add">Add a Farm or Bed</NavLink>
             <NavLink to="/updateafarm">Update a Farm</NavLink>
-            <NavLink to="/updateabed">Update a Bed</NavLink>
         </nav>
     )
 }
