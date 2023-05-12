@@ -1,7 +1,7 @@
 import React from 'react'
 import TableRow from './TableRow'
 
-function ViewFarms({allFarms, setAllFarms}) {
+function CropTable({allFarms, setAllFarms}) {
 
     let tableRowComps = []
 
@@ -45,4 +45,4 @@ function ViewFarms({allFarms, setAllFarms}) {
     )
 }
 
-export default ViewFarms
+export default CropTable

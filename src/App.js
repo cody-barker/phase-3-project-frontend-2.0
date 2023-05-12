@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
-import ViewFarms from './ViewFarms'
+import CropTable from './CropTable'
 import AddAFarmOrBed from './AddAFarmOrBed'
 import UpdateAFarmOrBed from './UpdateAFarmOrBed'
 import RemoveAFarm from './RemoveAFarm'
@@ -21,6 +21,7 @@ function App() {
    * [x] RESTful routes
    * [x] Use JSON responses to get new data. Don't rely on filtering state or separate fetch requests. 
    * [x] Include some validation so farms can't be duplicated if all fields match
+   * [] Clear fields for add a bed after submission
    * [] Include some validation so beds can't be created if the farm doesn't exist
    * [] Include Update option for Beds
    * [] Write some interesting queries
@@ -35,7 +36,7 @@ function App() {
    * Component Hierachy
    * App
    *    NavBar
-   *    ViewFarms (READ)
+   *    CropTable (READ)
    *      TableRow (DELETE)
    *    AddAFarmOrBed (CREATE)
    *    UpdateAFarmOrBed (UPDATE)
@@ -75,7 +76,7 @@ function App() {
         <Routes>
           <Route 
             path="/" 
-            element={<ViewFarms allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            element={<CropTable allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
             path ="/add"
             element={<AddAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
