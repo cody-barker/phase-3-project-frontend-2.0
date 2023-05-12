@@ -100,9 +100,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
    * Component Hierachy
    * App
    *    NavBar
-   *    CropTable (READ)
-   *      TableRow (DELETE)
-   *    AddAFarmOrBed (CREATE)
-   *    UpdateAFarmOrBed (UPDATE)
-   *    RemoveFarm (DELETE)
+   *    CropTable
+   *      CropTableRow
+   *    Farm Table
+   *      FarmTableRow
+   *    AddAFarmOrBed
+   *    UpdateAFarm
    */ 
