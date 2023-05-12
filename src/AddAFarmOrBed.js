@@ -97,15 +97,21 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(newBed => {
-            const updatedFarms = allFarms.map(farm => {
-                if (farm.id === newBed.farm.id) {
-                    farm.beds.push(newBed)
-                    return(farm)
-                } else {
-                    return farm
-                }
-            })
-            setAllFarms(updatedFarms)
+            console.log(newBed)
+            if (allFarms.find(farm => farm.id === newBed.farm_id)) {
+                const updatedFarms = allFarms.map(farm => {
+                    if (farm.id === newBed.farm.id) {
+                        farm.beds.push(newBed)
+                        return(farm)
+                    } else {
+                        return farm
+                    }
+                })
+                setAllFarms(updatedFarms)}
+            else {
+                alert("The Farm ID you entered does not exist.")
+            }
+    
         })
     }
 
