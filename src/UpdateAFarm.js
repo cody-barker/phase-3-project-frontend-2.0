@@ -1,47 +1,25 @@
 import React, {useState} from 'react'
 
-function UpdateAFarmOrBed({allFarms, setAllFarms}) {
+function UpdateAFarm({allFarms, setAllFarms}) {
 
     const [inputState, setInputState] = useState({
         farmName: "",
         farmCity: "",
         farmState: "",
         farmId: "",
-        sqFt: "",
-        inUse: "Yes",
-        crop: "",
-        dtm: "",
-        plantingDate: "",
-        harvestDate: ""
     })
     
     const {
         farmName,
         farmCity,
         farmState,
-        farmId,
-        sqFt,
-        inUse,
-        crop,
-        dtm,
-        plantingDate,
-        harvestDate
+        farmId
     } = inputState
 
     const updatedFarm = {
         name: farmName,
         city: farmCity,
         state: farmState,
-    }
-
-    const updatedBed = {
-        farm_id: farmId,
-        sq_ft: sqFt,
-        in_use: inUse,
-        crop: crop,
-        dtm: dtm,
-        planting_date: plantingDate,
-        harvest_date: harvestDate
     }
 
     function onInputChange(e) {
@@ -52,7 +30,7 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         })
     }
 
-    const selectOptions = allFarms.map(farm => {
+    const farmSelectOptions = allFarms.map(farm => {
         return(
         <option 
             key={farm.id}
@@ -84,6 +62,7 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
         })
     }
 
+
     function copyFarmData(e) {
         if (e.target.value === "Select a Farm") {
             setInputState({
@@ -113,7 +92,7 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
                             value="Select a Farm">
                             Select a Farm
                         </option>
-                    {selectOptions}
+                    {farmSelectOptions}
                 </select>
 
                     <label>
@@ -154,4 +133,4 @@ function UpdateAFarmOrBed({allFarms, setAllFarms}) {
     )
 }
 
-export default UpdateAFarmOrBed
+export default UpdateAFarm

@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import CropTable from './CropTable'
 import AddAFarmOrBed from './AddAFarmOrBed'
-import UpdateAFarmOrBed from './UpdateAFarmOrBed'
+import UpdateAFarm from './UpdateAFarm'
+import UpdateABed from './UpdateABed'
 import FarmTable from './RemoveAFarm'
 import NavBar from './NavBar'
 import './App.css';
@@ -59,14 +60,17 @@ function App() {
             path="/" 
             element={<CropTable allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
+            path="/farmtable"
+            element={<FarmTable allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+          <Route 
             path ="/add"
             element={<AddAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
-            path="/update"
-            element={<UpdateAFarmOrBed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            path="/updateafarm"
+            element={<UpdateAFarm allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
           <Route 
-            path="/farmtable"
-            element={<FarmTable allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
+            path="/updateabed"
+            element={<UpdateABed allFarms={allFarms} setAllFarms={setAllFarms}/>}/>
         </Routes>
     </div>
   );
