@@ -11,9 +11,9 @@ function CropTableRow({bed, farmName, farmID, allFarms, setAllFarms}) {
             method: "DELETE"
         })
         .then(r => r.json())
-        .then(bed => {
+        .then(deletedBed => {
             for (let i=0; i < allFarms.length; i++){
-                updatedFarms[i].beds = updatedFarms[i].beds.filter(bed => bed.id !== id)
+                updatedFarms[i].beds = updatedFarms[i].beds.filter(bed => bed.id !== deletedBed.id)
             }
             setAllFarms(updatedFarms)
         })

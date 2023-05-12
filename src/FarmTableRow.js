@@ -10,7 +10,7 @@ function FarmTableRow({farm, allFarms, setAllFarms}) {
         })
         .then(r => r.json())
         .then(deletedFarm => { 
-            setAllFarms([...allFarms].filter(farm => farm.id !== id))
+            setAllFarms([...allFarms].filter(farm => farm.id !== deletedFarm.id))
         })
     }
 
