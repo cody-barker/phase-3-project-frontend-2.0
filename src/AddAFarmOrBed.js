@@ -110,7 +110,6 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
             else {
                 alert("Please enter a valid Farm ID.")
             }
-    
         })
     }
 
