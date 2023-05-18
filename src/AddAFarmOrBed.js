@@ -158,20 +158,20 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
                     <label>
                         Farm ID
                         <input
-                        type="number"
-                        name="farmId"
                         onChange={onInputChange}
-                        value={farmId}>
+                        name="farmId"
+                        value={farmId}
+                        type="number">
                         </input>
                     </label>
 
                     <label>
                         Square Feet
-                        <input 
-                            type="number"
-                            name="sqFt"
+                        <input
                             onChange={onInputChange}
-                            value={sqFt}>
+                            name="sqFt"
+                            value={sqFt}
+                            type="number">
                         </input>
 
                     </label>
@@ -180,8 +180,8 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
                         In Use
                         <select 
                             onChange={onInputChange}
-                            value={inUse}
-                            name="inUse">
+                            name="inUse"
+                            value={inUse}>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                         </select>
@@ -190,40 +190,40 @@ function AddAFarmOrBed({allFarms, setAllFarms}) {
                     <label>
                         Crop
                         <input
-                            type="text"
                             onChange={onInputChange}
+                            name="crop"
                             value={crop}
-                            name="crop">
+                            type="text">
                         </input>
                     </label>
 
                     <label>
                         Days to Maturity
                         <input
-                            type="number"
                             onChange={onInputChange}
+                            name="dtm"
                             value={dtm}
-                            name="dtm">
+                            type="number">
                         </input>
                     </label>
 
                     <label>
                         Planting Date
                             <input
-                                type="date"
                                 onChange={onInputChange}
                                 name="plantingDate"
-                                value={plantingDate}>
+                                value={plantingDate}
+                                type="date">
                             </input>
                     </label>
 
                     <label>
                         Harvest Date
                         <input
-                            name="harvestDate"
-                            type="date"
                             onChange={onInputChange}
-                            value={harvestDate}>
+                            name="harvestDate"
+                            value={harvestDate}
+                            type="date">
                         </input>
                     </label>
                     <button type="submit">Submit</button>

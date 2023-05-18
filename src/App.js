@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import CropTable from './CropTable'
+import FarmTable from './FarmTable'
 import AddAFarmOrBed from './AddAFarmOrBed'
 import UpdateAFarm from './UpdateAFarm'
-import FarmTable from './FarmTable'
 import NavBar from './NavBar'
 import './App.css';
 
